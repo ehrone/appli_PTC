@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder 
 from kivy.uix.button import Button
 import bt_fun as bt
+from kivy.uix.popup import Popup
 
 
 class remote(BoxLayout):
@@ -26,7 +27,9 @@ class choose_device(BoxLayout):
         print("bluetooth port selected")
         if self.bluetooth_name !="":
             print(f'connecting bluetooth : {self.bluetooth_name, self.dico[self.bluetooth_name]}')
-            self.client = bt.crea_client_bt(self.dico[self.bluetooth_name], 1028)
+            self.client = bt.crea_client_bt("dc:a6:32:2f:9f:79", 1028) #self.dico[self.bluetooth_name]
+            popup = CustomPopup()
+            popup.open()
             bt.send_bt(self.client, "tentative connexion")
             #self.client.close()
         else :

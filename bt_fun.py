@@ -60,7 +60,9 @@ def crea_client_bt(interface_mac_add,port_num):
     """
     print("appel bluetooth ")
     client = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
+    print("connecting to socket ")
     client.connect((interface_mac_add, port_num))
+    print('connected')
     return client 
 
 def send_bt(client, message):
