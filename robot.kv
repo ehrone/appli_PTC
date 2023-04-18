@@ -1,8 +1,11 @@
 #:kivy 1.0
 
-<acceuil>:
-    id:acceuil
-    BoxLayout:
+ScreenManager:
+
+    acceuil:
+
+        id:acceuil
+        
         Label:
             font_size: 70
             text: " Welcome ! "
@@ -11,4 +14,41 @@
             text: "Connexion"
             on_press :
                 print("appuis connexion")
-            
+
+        Button:
+            text: "Retour"
+            on_press :
+                print("appuis retour")
+                app.change_window(nom_fenetre="acceuil)
+
+    Log:
+        id:log
+
+        Label : 
+            text : " Connexion "
+
+        TextInput:
+            text : " User id "
+
+        TextInput:
+            text : " User pwd "
+
+        Button:
+            text: "Connection"
+            on_press :
+                print("appuis retour")
+                app.change_window(nom_fenetre="logged")
+
+        Button:
+            text: "Retour"
+            on_press :
+                print("appuis retour")
+                app.change_window(nom_fenetre="acceuil")
+
+    Logged:
+        id:logged
+        Button:
+            text: "Retour log"
+            on_press :
+                print("appuis Retour")
+                app.change_window(nom_fenetre="log")
