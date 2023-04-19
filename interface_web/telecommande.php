@@ -12,40 +12,38 @@
         
         <body bgcolor = '#70706F'> 
            <?php
+
+           function write_command($cmd)
+           {
+              $file ="/var/www/html/Commandes.txt";
+              $fileopen=(fopen($file,'w'));
+              fwrite($fileopen,$cmd);
+              fclose($fileopen);
+
+           }
               if( isset($_POST['up']) )
               {
                
-                $file ="/var/www/html/Commandes.txt";
-                $fileopen=(fopen("$file",'w'));
-                fwrite($fileopen,"up");
-                fclose($fileopen);
+                write_command("up");
               }
 
               if( isset($_POST['down']) )
               {
                
-                $file ="/var/www/html/Commandes.txt";
-                $fileopen=(fopen("$file",'w'));
-                fwrite($fileopen,"down");
-                fclose($fileopen);
+                write_command("down");
               }
 
               if( isset($_POST['right']) )
               {
                
-                $file ="/var/www/html/Commandes.txt";
-                $fileopen=(fopen("$file",'w'));
-                fwrite($fileopen,"right");
-                fclose($fileopen);
+                write_command("right");
               }
               if( isset($_POST['left']) )
               {
                
-                $file ="/var/www/html/Commandes.txt";
-                $fileopen=(fopen("$file",'w'));
-                fwrite($fileopen,"left");
-                fclose($fileopen);
+                write_command("left");
               }
+  
 
              ?>
             <hr/><hr>
@@ -57,16 +55,16 @@
             <div id='btnContainer'>
               <form method="post">
                   <center>
-                  <input type="submit" name='up'>up</button></a><br /> 
+                  <input type="submit" name='up' value="up">
                   </center>
                   <center>
-                    <input type="submit" name='down'>down</button></a><br /> 
+                    <input type="submit" name='down' value="down">
                   </center>
                   <center>
-                    <input type="submit" name='left'>left</button></a><br /> 
+                    <input type="submit" name='left' value="left">
                   </center>
                   <center>
-                    <input type="submit" name='right'>rigth</button></a><br /> 
+                    <input type="submit" name='right' value="right"> 
                    </center>
               </form>
              </div>
