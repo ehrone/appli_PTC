@@ -16,7 +16,7 @@ body{
     }
     
     
-    button{
+    input{
       width:auto;
       height:60px;
       background-color: #3aaa35;/* Green */
@@ -33,7 +33,7 @@ body{
       transition-duration: 0.4s;
       margin: 5px;
     }
-    button:hover{
-      background-color: #4CAF50; /* Green */
+    input:hover{
+      background-color: #6CAF50; /* Green */
       color: white;
     }
