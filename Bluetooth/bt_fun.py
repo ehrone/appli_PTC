@@ -1,18 +1,24 @@
 import socket
 import bluetooth
 
-def find_bt():
+def find_bt(name_device=0):
     """ This function display all the nearby bluetooth devices found and return a dict with all of them
     Output : 
         dico : {bluetooth_device_name : mac_address}
     """
     nearby_devices = bluetooth.discover_devices(lookup_names=True)
     print("Found {} devices.".format(len(nearby_devices)))
-    dico={}
-    for addr, name in nearby_devices:
-        print("  {} - {}".format(addr, name))
-        dico[name]=addr
-    return dico
+    if name_device !=0:
+        for addr, name in nearby_devices:
+            if name == name_device :
+                print('device found')
+                return addr
+    else :
+        dico={}
+        for addr, name in nearby_devices:
+            print("  {} - {}".format(addr, name))
+            dico[name]=addr
+        return dico
 
 #interface_mac_add = 
 #port_num = 

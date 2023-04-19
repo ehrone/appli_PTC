@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+    <html>
+        <head>
+            <title> AranaCorp </title>
+            <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
+            <meta name='apple-mobile-web-app-capable' content='yes' />
+            <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+            <meta http-equiv='refresh' content='10'>
+            <link rel="stylesheet" href='rpi_style.css'/>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        </head>
+        
+        <body bgcolor = '#70706F'> 
+           <?php
+              if( isset($_POST['up']) )
+              {
+                file_put_contents('exemple.txt', "up", FILE_APPEND);
+              }
+
+             ?>
+            <hr/><hr>
+            <h1 style='color : #3AAA35;'><center> Telecommande </center></h1>
+            <hr/><hr>
+            <br><br>
+            <h2><center><p>Equipe D 3</p></center></h2>
+            <br><br><h2> Commandes </h2>
+            <div id='btnContainer'>
+                  <center>
+                  <button name='up'>up</button></a><br /> 
+                  </center>
+                  <center>
+                    <button name='down'>down</button></a><br /> 
+                  </center>
+                  <center>
+                    <button name='left'>left</button></a><br /> 
+                  </center>
+                  <center>
+                    <button name='right'>rigth</button></a><br /> 
+                   </center>
+             </div>
+            
+    </body>
+</html>

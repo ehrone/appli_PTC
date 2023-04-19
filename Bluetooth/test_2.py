@@ -33,7 +33,7 @@ class BluetoothClientApp(App):
 
         # Connect to the server
         sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-        sock.connect((SERVER_MAC_ADDRESS, 1))
+        sock.connect((SERVER_MAC_ADDRESS, 1026))
 
         # Send the message
         sock.send(MESSAGE)
