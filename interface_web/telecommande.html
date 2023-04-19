@@ -14,7 +14,37 @@
            <?php
               if( isset($_POST['up']) )
               {
-                file_put_contents('exemple.txt', "up", FILE_APPEND);
+               
+                $file ="/var/www/html/Commandes.txt";
+                $fileopen=(fopen("$file",'w'));
+                fwrite($fileopen,"up");
+                fclose($fileopen);
+              }
+
+              if( isset($_POST['down']) )
+              {
+               
+                $file ="/var/www/html/Commandes.txt";
+                $fileopen=(fopen("$file",'w'));
+                fwrite($fileopen,"down");
+                fclose($fileopen);
+              }
+
+              if( isset($_POST['right']) )
+              {
+               
+                $file ="/var/www/html/Commandes.txt";
+                $fileopen=(fopen("$file",'w'));
+                fwrite($fileopen,"right");
+                fclose($fileopen);
+              }
+              if( isset($_POST['left']) )
+              {
+               
+                $file ="/var/www/html/Commandes.txt";
+                $fileopen=(fopen("$file",'w'));
+                fwrite($fileopen,"left");
+                fclose($fileopen);
               }
 
              ?>
@@ -25,18 +55,20 @@
             <h2><center><p>Equipe D 3</p></center></h2>
             <br><br><h2> Commandes </h2>
             <div id='btnContainer'>
+              <form method="post">
                   <center>
-                  <button name='up'>up</button></a><br /> 
+                  <input type="submit" name='up'>up</button></a><br /> 
                   </center>
                   <center>
-                    <button name='down'>down</button></a><br /> 
+                    <input type="submit" name='down'>down</button></a><br /> 
                   </center>
                   <center>
-                    <button name='left'>left</button></a><br /> 
+                    <input type="submit" name='left'>left</button></a><br /> 
                   </center>
                   <center>
-                    <button name='right'>rigth</button></a><br /> 
+                    <input type="submit" name='right'>rigth</button></a><br /> 
                    </center>
+              </form>
              </div>
             
     </body>
