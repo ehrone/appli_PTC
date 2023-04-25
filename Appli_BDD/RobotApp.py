@@ -4,6 +4,8 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.lang import Builder 
 from kivymd.theming import ThemeManager
 
+import lecture_base as lbdd
+
 
 kivy.require("1.9.1")
 
@@ -21,7 +23,10 @@ class Log(Screen):
     def logged_in(self):
         user_name = self.ids.user_id.text
         user_pwd = self.ids.user_pwd.text
-        print(f"Vous êtes connecté ! : {user_name}, {user_pwd} ")
+        if (lbdd.check_utilisateur(user_name, user_pwd) ):
+            print(f"Vous êtes connecté ! : {user_name} ")
+            #print("changement fenêtre")
+            return True
     
     pass
 
@@ -30,9 +35,6 @@ class Acceuil(Screen):
     pass
 
         
-
-    
-
 class MainApp(App):
     
     
@@ -57,7 +59,7 @@ class MainApp(App):
         # Création des fenêtres
         acceuil = Acceuil(name='Acceuil')
         log = Log(name='Log')
-        logged_in = Logged_in(name='Logged_in')
+        logged_in = Logged_in(name='Logged')
         
         
 

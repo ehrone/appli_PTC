@@ -5,8 +5,6 @@
 <acceuil>:
 
     id:Acceuil
-  
-        
         
     Label:
         font_size: 70
@@ -53,6 +51,7 @@
     TextInput:
         id : user_pwd
         hint_text : " User pwd "
+        password: True
         size_hint : 0.3, 0.1
         border_radius:[10,10,10,10]
         pos_hint: {"center_x":0.5, "top":0.65}
@@ -64,8 +63,7 @@
         border_radius:[10,10,10,10]
         on_press :
             print("appuis Connexion")
-            root.logged_in()
-            root.manager.current='Logged_in'
+            root.manager.current='Logged' if root.logged_in() else print('nope')
 
     Button:
         text: "Retour"
@@ -77,11 +75,13 @@
             root.manager.current='Acceuil'
 
 <Logged>:
-    id:Logged_in
+    id:Logged
 
-    Label : 
-        text : " Connecté ! "
-        size_hint : 0.3, 0.1
-        pos_hint: {"center_x":0.5, "top":1}
+    Label:
+        font_size: 70
+        text: " Welcome ! "
+        size_hint : 0.3, 0.3
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+
 
     
