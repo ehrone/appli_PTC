@@ -1,54 +1,87 @@
 #:kivy 1.0
 
-ScreenManager:
 
-    acceuil:
 
-        id:acceuil
+<acceuil>:
+
+    id:Acceuil
+  
         
-        Label:
-            font_size: 70
-            text: " Welcome ! "
+        
+    Label:
+        font_size: 70
+        text: " Welcome ! "
+        size_hint : 0.3, 0.3
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        
 
-        Button:
-            text: "Connexion"
-            on_press :
-                print("appuis connexion")
+    Button:
+        text: "Connexion"
+        size_hint : 0.3, 0.3
+        pos_hint: {"x":0.1, "top":0.3}
+        border_radius: [20,0,60,0]
+        on_press :
+            print("appuis connexion")
+            root.manager.current='Log'
 
-        Button:
-            text: "Retour"
-            on_press :
-                print("appuis retour")
-                app.change_window(nom_fenetre="acceuil)
+    Button:
+        text: "Retour"
+        size_hint : 0.3, 0.3
+        pos_hint: {"x":0.6, "top":0.3}
+        border_radius:[10,10,10,10]
+        on_press :
+            print("Pas de retour possible")
+            
 
-    Log:
-        id:log
+<Log>:
+    id:Log
 
-        Label : 
-            text : " Connexion "
+    Label : 
+        text : " Connexion "
+        size_hint : 0.3, 0.1
+        pos_hint: {"center_x":0.5, "top":1}
 
-        TextInput:
-            text : " User id "
+    
 
-        TextInput:
-            text : " User pwd "
+    TextInput:
+        id : user_id
+        hint_text : " User id "
+        size_hint : 0.3, 0.1
+        border_radius:[10,10,10,10]
+        pos_hint: {"center_x":0.5, "top":0.8}
 
-        Button:
-            text: "Connection"
-            on_press :
-                print("appuis retour")
-                app.change_window(nom_fenetre="logged")
+    TextInput:
+        id : user_pwd
+        hint_text : " User pwd "
+        size_hint : 0.3, 0.1
+        border_radius:[10,10,10,10]
+        pos_hint: {"center_x":0.5, "top":0.65}
 
-        Button:
-            text: "Retour"
-            on_press :
-                print("appuis retour")
-                app.change_window(nom_fenetre="acceuil")
+    Button:
+        text: "Connexion"
+        size_hint : 0.3, 0.2
+        pos_hint: {"center_x":0.5, "top":0.5}
+        border_radius:[10,10,10,10]
+        on_press :
+            print("appuis Connexion")
+            root.logged_in()
+            root.manager.current='Logged_in'
 
-    Logged:
-        id:logged
-        Button:
-            text: "Retour log"
-            on_press :
-                print("appuis Retour")
-                app.change_window(nom_fenetre="log")
+    Button:
+        text: "Retour"
+        size_hint : 0.3, 0.2
+        pos_hint: {"center_x":0.5, "top":0.2}
+        border_radius:[10,10,10,10]
+        on_press :
+            print("appuis retour, vers acceuil")
+            root.manager.current='Acceuil'
+
+<Logged>:
+    id:Logged_in
+
+    Label : 
+        text : " Connecté ! "
+        size_hint : 0.3, 0.1
+        pos_hint: {"center_x":0.5, "top":1}
+
+    

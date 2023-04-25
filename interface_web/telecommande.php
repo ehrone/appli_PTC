@@ -16,7 +16,7 @@
            function write_command($cmd)
            {
               $file ="/var/www/html/Commandes.txt";
-              $fileopen=(fopen($file,'w'));
+              $fileopen=(fopen($file,'w') or die("didn't opened the file") );
               fwrite($fileopen,$cmd);
               fclose($fileopen);
 
